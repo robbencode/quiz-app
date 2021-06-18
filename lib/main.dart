@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import './question.dart';
+import './answer.dart';
 
 /*void main() {
   runApp(MyApp());
@@ -8,11 +9,7 @@ void main() => runApp(MyApp());
 
 class MyApp extends StatefulWidget {
   @override
-  State<StatefulWidget> createState() {
-    // TODO: implement createState
-
-    return MyAppState();
-  }
+  State<StatefulWidget> createState() => MyAppState();
 }
 
 class MyAppState extends State<MyApp> {
@@ -30,15 +27,29 @@ class MyAppState extends State<MyApp> {
       'what\'s your favoutit player?',
     ];
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
-          appBar: AppBar(
-            title: Text('first app'),
-          ),
-          body: Column(
-            children: [
-              Text(questions.elementAt(1)),
-              RaisedButton(
-                  child: Text('Real Madrid'), onPressed: answerquestion),
+        appBar: AppBar(
+          title: Text('first app'),
+        ),
+        body: Column(
+          children: [
+            if (questionindex < questions.length)
+              Question(questions[questionindex]),
+            Answer(answerquestion),
+            Answer(answerquestion),
+            Answer(answerquestion)
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+
+
+
+/* 
               RaisedButton(
                   child: Text('Al ahly'),
                   onPressed: () {
@@ -47,9 +58,4 @@ class MyAppState extends State<MyApp> {
               RaisedButton(
                 child: Text('Buca Juniors'),
                 onPressed: () => print('a7mos'),
-              )
-            ],
-          )),
-    );
-  }
-}
+              )*/
